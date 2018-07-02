@@ -1,0 +1,9 @@
+
+database:
+  image: sameersbn/postgresql
+  container_name: crypto-db
+  environment:
+    DB_NAME: crypto-db
+    PG_TRUST_LOCALNET: 'true'
+  ports:
+  - 5432:5432
