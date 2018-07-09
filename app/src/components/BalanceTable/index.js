@@ -7,6 +7,7 @@ const BalanceTable = ({items}) => (
     <table>
         <tr>
             <th>Name</th>
+            <th>Blocks mined</th>
             <th>Amount</th>
         </tr>
         {items.map(item => 

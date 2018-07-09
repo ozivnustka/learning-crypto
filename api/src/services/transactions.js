@@ -16,6 +16,20 @@ const isValid = transaction =>
     && !isEmpty(transaction.amount)
     && !isNaN(transaction.amount)
 
+const getBlockStatistics = async () => {
+  const blocks = await queries.getAllBlocks({})
+
+  const statistics = {}
+  blocks.forEach(block => {
+    if (statistics[block.minedBy]) {
+      statistics[block.minedBy] += 1
+    } else {
+      statistics[block.minedBy] = 1
+    }
+  })
+  return statistics
+}
+
 module.exports = {
   async getTransactions() {
     const blocks = await queries.getBlocksWithTransaction()
@@ -40,6 +54,7 @@ module.exports = {
 
     const result = {}
     const transactions = await this.getTransactions()
+    const blockStatistics = await getBlockStatistics()
 
     transactions.forEach(trans => {
       if (result[trans.from]) {
@@ -57,6 +72,7 @@ module.exports = {
     return sortByAmount(toPairs(result).map(res => ({
       name: res[0],
       amount: res[1],
+      minedBlocks: blockStatistics[res[0]] || 0,
     })))
   },
 }

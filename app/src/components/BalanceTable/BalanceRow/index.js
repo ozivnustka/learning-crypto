@@ -3,6 +3,7 @@ import React from 'react'
 const BalanceRow = data => (
     <tr>
         <td>{data.name}</td>
+        <td>{data.minedBlocks}</td>
         <td>{data.amount}</td>
     </tr>   
 )

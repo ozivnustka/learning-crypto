@@ -1,61 +1,61 @@
 import React from 'react';
-import { Formik, Field, Form } from 'formik';
+import { withFormik } from 'formik';
 import './style.css'
 import { addBlock } from '../../data'
 import { PageContainer } from '../../componentsStyled/Shared'
-import { isEmpty,omit } from 'ramda'
 
-const UploadBlock = () => (
-  <PageContainer>
+const UploadBlock = props => {
+  const {
+    values,
+    isSubmitting,
+    handleSubmit,
+    handleChange,
+  } = props;
+  return (
+    <PageContainer>
     <h1>Upload new block</h1>
-    <Formik
-      initialValues={{
-        index: null,
-        minedBy: '',
-        data1: '',
-        data2: '',
-        previousHash: '',
-        hash: '',
-        nonce: null,
-      }}
-      onSubmit={values => {
-        const data = isEmpty(values.data2) ? values.data1 : [values.data1, values.data2].join('\n')
-        
-        return addBlock({
-            ...omit(['data1', 'data2'],values),
-            data,
-        })
-        .then(() => alert('Thank you for adding new block :)'))
-        .catch(err => alert(err))
-      }}
-      render={() => (
-        <Form>
-          <label htmlFor="index">Index</label>
-          <Field name="index" type="number" placeholder={0} />
+    <form onSubmit={handleSubmit}>
+      <label htmlFor="index" style={{ display: 'block' }}>  Index </label>
+      <input id="index" placeholder={0} type="number" value={values.index} onChange={handleChange}/>
 
-          <label htmlFor="minedBy">Mined by</label>
-          <Field name="minedBy" placeholder="Rumcajs" />
+      <label htmlFor="minedBy" style={{ display: 'block' }}>  Mined by </label>
+      <input id="minedBy" placeholder="Krakonos" type="text" value={values.minedBy} onChange={handleChange}/>
 
-          <label htmlFor="data1">Data line 1</label>
-          <Field name="data1" placeholder="Hello guys :)"/>
+      <label htmlFor="data" style={{ display: 'block' }}>  Data </label>
+      <textarea id="data" placeholder="Hello guys :)" type="number" value={values.data} rows="10" cols="100" resize="none" onChange={handleChange}/>
 
-          <label htmlFor="data2">Data line 2</label>
-          <Field name="data2" placeholder="Line 2 (optional)"/>
+      <label htmlFor="previousHash" style={{ display: 'block' }}>  Previous hash </label>
+      <input id="previousHash" placeholder="0000..." type="text" value={values.previousHash} onChange={handleChange}/>
 
-          <label htmlFor="previousHash">Previous hash</label>
-          <Field name="previousHash" placeholder="0000..." />
+      <label htmlFor="hash" style={{ display: 'block' }}>  Hash </label>
+      <input id="hash" placeholder="0000..." type="text" value={values.hash} onChange={handleChange}/>
 
-          <label htmlFor="hash">Hash</label>
-          <Field name="hash" placeholder="0000..." />
+      <label htmlFor="nonce" style={{ display: 'block' }}>  Nonce </label>
+      <input id="nonce" placeholder="0" type="number" value={values.nonce} onChange={handleChange}/>      
 
-          <label htmlFor="nonce">Nonce</label>
-          <Field name="nonce" type="number" placeholder={0} />
+      <button type="submit" disabled={isSubmitting}>
+        Submit
+      </button>
+    </form>
+    </PageContainer>
+  )
+}
 
-          <button type="submit">Submit</button>
-        </Form>
-      )}
-    />
-  </PageContainer>
-)
-
-export default UploadBlock
+export default withFormik({
+  mapPropsToValues: () => ({ 
+    index: '',
+    minedBy: '',
+    data: '',
+    previousHash: '',
+    hash: '',
+    nonce: '',
+  }),
+  handleSubmit: (values, { setSubmitting }) => {
+    return addBlock(values)
+    .then(() => {
+      setSubmitting(false)  
+      alert('Thank you for adding new block :)')
+    }).catch(err => alert(err))
+  },
+  displayName: 'BasicForm', // helps with React DevTools
+})(UploadBlock)

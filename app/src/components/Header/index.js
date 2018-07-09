@@ -1,18 +1,19 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import './style.css'
+import { StyledUl, StyledLi } from '../../componentsStyled/Menu'
 
 const Header = () => (
   <header>
     <nav>
-      <ul>
-        <li><Link to='/'>Home</Link></li>
-        <li><Link to='/definition'>Definition</Link></li>
-        <li><Link to='/blockchain'>Blockchain</Link></li>
-        <li><Link to='/upload-block'>Upload block</Link></li>
-        <li><Link to='/transactions'>Transactions</Link></li>
-        <li><Link to='/balance'>Balance</Link></li>
-      </ul>
+      <StyledUl>
+        <StyledLi><Link to='/'>Home</Link></StyledLi>
+        <StyledLi><Link to='/specification'>Specification</Link></StyledLi>
+        <StyledLi><Link to='/exercises'>Exercises</Link></StyledLi>
+        <StyledLi><Link to='/blockchain'>Blockchain</Link></StyledLi>
+        <StyledLi><Link to='/transactions'>Transactions</Link></StyledLi>
+        <StyledLi><Link to='/balance'>Balance</Link></StyledLi>
+        <StyledLi><Link to='/upload-block'>Upload block</Link></StyledLi>
+      </StyledUl>
     </nav>
   </header>
 )
