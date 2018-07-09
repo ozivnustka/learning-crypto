@@ -7,11 +7,12 @@ const serializeBlock = r => ({
   nonce: r.nonce,
   hash: r.hash,
   previousHash: r.previous_hash,
+  createdAt: r.created_at,
 })
 
 module.exports = {
-  async getAllBlocks() {
-    const res = await db.client.query('SELECT * from blocks')
+  async getAllBlocks({ order = 'asc' }) {
+    const res = await db.client.query(`SELECT * from blocks order by index ${order}`)
     return res.rows.map(serializeBlock)
   },
 
@@ -20,9 +21,14 @@ module.exports = {
     return serializeBlock(res.rows[0])
   },
 
+  async getBlocksWithTransaction() {
+    const res = await db.client.query('SELECT * from blocks where data iLike \'transaction,%\'')
+    return res.rows.map(serializeBlock)
+  },
+
   async insertBlock(data) {
     const text = 'INSERT INTO blocks(index, data, mined_by, nonce, hash, previous_hash) VALUES($1, $2, $3, $4, $5, $6) RETURNING *'
-    const values = [data.index, data.minedBy, data.nonce, data.hash, data.previousHash]
+    const values = [data.index, data.data, data.minedBy, data.nonce, data.hash, data.previousHash]
     const res = await db.client.query(text, values)
     return serializeBlock(res.rows[0])
   },

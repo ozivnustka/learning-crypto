@@ -5,11 +5,13 @@ const config = require('./common/config')
 const log = require('./common/logger')
 const routes = require('./common/routes')
 const db = require('./database')
+const errorMiddleware = require('./middleware/errors')
 
 const app = new Koa()
 
 app.use(koaBody())
 app.use(koaCors())
+app.use(errorMiddleware.handleErrors)
 
 // Setup routes
 app.use(routes)

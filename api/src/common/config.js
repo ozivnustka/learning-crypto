@@ -2,7 +2,7 @@
 module.exports = {
   appName: 'crypto',
   server: {
-    port: process.env.PORT || 3000,
+    port: process.env.PORT || 5000,
   },
   database: {
     connectionString: process.env.DATABASE_URL || 'postgres://postgres@localhost:5432/crypto-db',
