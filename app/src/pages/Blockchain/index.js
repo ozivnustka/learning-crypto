@@ -9,11 +9,9 @@ export default class Blockchain extends Component {
   };
 
   componentDidMount(){
-    this.timer = setInterval(()=>
     getBlocks()
-      .then(blocks => this.setState({ blocks }))
-      .catch(err => console.log(err)),
-    60000)
+    .then(blocks => this.setState({ blocks }))
+    .catch(err => console.log(err));
    }
 
   render() {
