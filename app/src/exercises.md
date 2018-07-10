@@ -9,7 +9,7 @@ The challenge it to mine and create some Krakonos coin.
 1. Mine a new coin / block
 1. Upload to the first (and only) Krakonos coin node.
 1. Create a coin / block with some transactions.
-1. Send Adam some coins!
+1. Send Ondra some coins!
 
 # Step 1 - Validate the genesis coin
 Try and generate the hash for the genesis coin. 
