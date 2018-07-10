@@ -6,7 +6,8 @@ const Home = () => (
     <h1>Welcome miner!</h1>
     <img src="./krakonos-coin.png" alt="Krakonos coin" />
 
-    <p> Thanks to LeedsCodeDojo and https://github.com/adampridmore/BrassBitCoin </p>
+    <p> Thanks to YorkCodeDojo!  </p>
+    <p> Idea and texts are copied from https://github.com/adampridmore/BrassBitCoin </p>
   </PageContainer>
 )
 
