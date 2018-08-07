@@ -50,12 +50,13 @@ export default withFormik({
     hash: '',
     nonce: '',
   }),
-  handleSubmit: (values, { setSubmitting }) => {
-    return addBlock(values)
+  handleSubmit: (values, { setSubmitting, resetForm }) => addBlock(values)
     .then(() => {
-      setSubmitting(false)  
+      resetForm(false)
       alert('Thank you for adding new block :)')
-    }).catch(err => alert(err))
-  },
+    }).catch(err => {
+      setSubmitting(false)
+      alert(err)
+    }),
   displayName: 'BasicForm', // helps with React DevTools
 })(UploadBlock)
