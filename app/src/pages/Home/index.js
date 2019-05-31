@@ -4,7 +4,7 @@ import { PageContainer } from '../../componentsStyled/Shared'
 const Home = () => (
   <PageContainer>
     <h1>Welcome miner!</h1>
-    <img src="./krakonos-coin.png" alt="Krakonos coin" />
+    <img src="./aifi-coin.jpg" alt="AiFi coin" />
 
     <p> Thanks to YorkCodeDojo!  </p>
     <p> Idea and texts are copied from https://github.com/adampridmore/BrassBitCoin </p>
