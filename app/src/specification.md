@@ -1,5 +1,5 @@
 
-# The Krakonos Blockchain Specification
+# The AiFi Blockchain Specification
 
 ## Block
 
@@ -41,7 +41,7 @@ Subsequent block must meet the following criteria:
 * _data_ is any arbitrary data to store in the block - (this would be any transactions in this block for bitcoin)
 * _previousHash_ is the hash of the previous block
 * _nonce_ (the nonsense number) a number which can be changed to make a valid hash (see below)
-* _hash_ of the block starts with 4 zeros. If it is not valid, try another nonce value! This is the proof of work to earn your Krakonos coin.
+* _hash_ of the block starts with 4 zeros. If it is not valid, try another nonce value! This is the proof of work to earn your AiFi coin.
 
 ## Transactions
 

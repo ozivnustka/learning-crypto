@@ -19,7 +19,7 @@ const UploadBlock = props => {
       <input id="index" placeholder={0} type="number" value={values.index} onChange={handleChange}/>
 
       <label htmlFor="minedBy" style={{ display: 'block' }}>  Mined by </label>
-      <input id="minedBy" placeholder="Krakonos" type="text" value={values.minedBy} onChange={handleChange}/>
+      <input id="minedBy" placeholder="AiFi" type="text" value={values.minedBy} onChange={handleChange}/>
 
       <label htmlFor="data" style={{ display: 'block' }}>  Data </label>
       <textarea id="data" placeholder="Hello guys :)" type="number" value={values.data} rows="10" cols="100" resize="none" onChange={handleChange}/>

@@ -1,19 +1,19 @@
 
-# Mining for Krakonos coin 
+# Mining for AiFi coin 
 
-The challenge it to mine and create some Krakonos coin.
+The challenge it to mine and create some AiFi coin.
 
 ## Steps:
 
 1. Validate the genesis coin
 1. Mine a new coin / block
-1. Upload to the first (and only) Krakonos coin node.
+1. Upload to the first (and only) AiFi coin node.
 1. Create a coin / block with some transactions.
 1. Send Ondra some coins!
 
 # Step 1 - Validate the genesis coin
 Try and generate the hash for the genesis coin. 
-See https://krakonos-coin.herokuapp.com/specification
+See https://aificoin.herokuapp.com/specification
  (The Genesis Block)' for details on the genesis coin and how to generate the hash.
 
 Hint: Write a function that when passed the block values (in a record type?) returns the hash as a string. Does this hash match the hash in the specification for the genesis block?
@@ -25,14 +25,14 @@ _Note_: I'd guess that statistically you'd need to try on average ~32,000. 2 byt
 
 Hint: Call the function you wrote in step 1 with new block values. Use your name as the _minedBy_ value - so we can tell who's mined what. You can put anything in the _data_ value (such as _'hello'_ we're not going to use it yet.) Set the index to 1. Set the _previousHash_ to the hash of the genesis block. 
 
-Try different _nonce_ values until you find one where the hash starts with four zero's. If you find one, congratulations this is a new valid Krakonos coin! Also you've earnt yourself one new shiny Krakonos coin.
+Try different _nonce_ values until you find one where the hash starts with four zero's. If you find one, congratulations this is a new valid AiFi coin! Also you've earnt yourself one new shiny AiFi coin.
 
 # Step 3 - Upload a coin
 
 Mine and upload the **next** coin on the BlockChain server.
 
 You'll need to find the latest block and mine new coin with that as the parent hash and index. You can get the latest block here:
-https://krakonos-coin.herokuapp.com/blockchain
+https://aificoin.herokuapp.com/blockchain
 
 # Step 4 - Block with Transactions
 
@@ -40,13 +40,13 @@ Now mine another coin, but this time we'll add some transactions to the _data_ f
 
 Why not give one of your coins to 'Adam'. I'm sure he'll appreciate it. Set the _from_ = [your miner name]), _to_ = 'Adam' and _amount_ = 1. Upload it, and you should see it in the last block chain, and in the transactions here:
 
-https://krakonos-coin.herokuapp.com/transactions
+https://aificoin.herokuapp.com/transactions
 
 # Further steps
 
 ## Which blockchain has been hacked?
 
-We have got three different blockchains (it is different chain than Krakonos coin) and we think one of them has been tampered with. Which one is it?
+We have got three different blockchains (it is different chain than AiFi coin) and we think one of them has been tampered with. Which one is it?
 
 ### Blockchain 1
 
@@ -94,10 +94,10 @@ Try settings the difficulty harder (e.g. more zeros). How long does it take to m
 
 ## Return the latest block
 
-https://krakonos-coin-api.herokuapp.com/blocks/last
+https://aificoin-api.herokuapp.com/blocks/last
 
 ## Return all the blocks 
 
-https://krakonos-coin-api.herokuapp.com/blocks
+https://aificoin-api.herokuapp.com/blocks
 
-The challenge it to mine and create some Krakonos coin
+The challenge it to mine and create some AiFi coin
