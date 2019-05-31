@@ -94,10 +94,10 @@ Try settings the difficulty harder (e.g. more zeros). How long does it take to m
 
 ## Return the latest block
 
-https://aificoin-api.herokuapp.com/blocks/last
+https://krakonos-coin-api.herokuapp.com/blocks/last
 
 ## Return all the blocks 
 
-https://aificoin-api.herokuapp.com/blocks
+https://krakonos-coin-api.herokuapp.com/blocks
 
 The challenge it to mine and create some AiFi coin
